@@ -8,7 +8,7 @@ enum Affordability {
   affordable,
   pricey,
   luxurious,
-}
+} 
 
 class Meal {
   const Meal({

@@ -10,7 +10,7 @@ final theme = ThemeData(
   useMaterial3: true,
   colorScheme: ColorScheme.fromSeed(
     brightness: Brightness.dark,
-    seedColor: const Color.fromARGB(255, 131, 57, 0),
+    seedColor: const Color.fromARGB(255, 0, 80, 150),
   ),
   textTheme: GoogleFonts.latoTextTheme(),
 );
@@ -27,9 +27,10 @@ class App extends StatelessWidget {
     return MaterialApp(
       theme: theme,
       home: const MealsScreen(
-        title: 'Einhver flokk',
+        title: 'Einhver flokkur',
         meals: dummyMeals,
       ),
 );
   }
-}
+} 
+

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutterapp/models/category.dart';
 
-import 'package:flutterapp/models/meal.dart';
+import 'package:flutterapp/models/meal.dart'; 
 
 const availableCategories = [
   Category(
@@ -406,4 +406,4 @@ const dummyMeals = [
     isVegetarian: true,
     isLactoseFree: true,
   ),
-]; 
+];
