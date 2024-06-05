@@ -2,30 +2,30 @@ import 'package:flutter/material.dart';
 
 import 'package:flutterapp/models/category.dart';
 
-import 'package:flutterapp/models/meal.dart'; 
+import 'package:flutterapp/models/meal.dart';
 
 const availableCategories = [
   Category(
     id: 'c1',
-    title: 'Italian',
-    color: Colors.purple,
+    title: 'Breakfast',
+    color: Color.fromRGBO(252, 246, 187, 1),
   ),
   Category(
     id: 'c2',
-    title: 'Quick & Easy',
-    color: Colors.red,
+    title: 'Lunch',
+    color: Color.fromARGB(255, 173, 216, 230),
   ),
   Category(
     id: 'c3',
-    title: 'Hamburgers',
-    color: Colors.orange,
+    title: 'Dinner',
+    color: Color.fromARGB(255, 255, 215, 142),
   ),
   Category(
     id: 'c4',
-    title: 'German',
-    color: Colors.amber,
+    title: 'Dessert',
+    color: Color.fromARGB(255, 255, 182, 193),
   ),
-  Category(
+  /*Category(
     id: 'c5',
     title: 'Light & Lovely',
     color: Colors.blue,
@@ -37,7 +37,7 @@ const availableCategories = [
   ),
   Category(
     id: 'c7',
-    title: 'Breakfast',
+    title: 'Italian',
     color: Colors.lightBlue,
   ),
   Category(
@@ -54,11 +54,26 @@ const availableCategories = [
     id: 'c10',
     title: 'Summer',
     color: Colors.teal,
-  ),
+  ),*/
 ];
 
 const dummyMeals = [
-  Meal(
+ Meal(
+    id: 'm1',
+    categories: ['c1,c2'],
+    title: "Eggs and bacon",
+    imageUrl: 'https://www.womansworld.com/wp-content/uploads/2023/01/Sunny-side-up-eggs-with-bacon.jpg',
+    ingredients: ["Eggs,Bacon"],
+    steps: [""],
+    duration: 15,
+    complexity: Complexity.simple,
+    affordability: Affordability.affordable,
+    isGlutenFree: true,
+    isLactoseFree: true,
+    isVegan: false,
+    isVegetarian: false,
+  )
+  /*Meal(
     id: 'm1',
     categories: [
       'c1',
@@ -405,5 +420,5 @@ const dummyMeals = [
     isVegan: true,
     isVegetarian: true,
     isLactoseFree: true,
-  ),
+  ),*/
 ];

@@ -31,17 +31,18 @@ class CategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Choose Category'),
+        title: const Center(child:Text('Choose Category',style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),))
       ),
       body: GridView(
         padding: const EdgeInsets.all(24),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          childAspectRatio: 3 / 2,
+          crossAxisCount: 1,
+          childAspectRatio: 19 / 9,
           crossAxisSpacing: 20,
           mainAxisSpacing: 20,
         ),
         children: [
+          
           // availableCategories.map((category) => CategoryGridItem(category)).toList()
           for (final category in availableCategories)
             CategoryGridItem(

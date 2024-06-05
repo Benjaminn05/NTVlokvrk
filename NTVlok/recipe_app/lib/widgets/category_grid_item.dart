@@ -7,6 +7,7 @@ class CategoryGridItem extends StatelessWidget {
     super.key,
     required this.category,
     required this.onSelectCategory,
+    
   }); 
 
   final Category category;
@@ -24,17 +25,19 @@ class CategoryGridItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             gradient: LinearGradient(
               colors: [
-                category.color.withOpacity(0.55),
-                category.color.withOpacity(0.9),
+                category.color.withOpacity(0.8),
+                category.color.withOpacity(0.8),
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             )),
-        child: Text(
-          category.title,
-          style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                color: Theme.of(context).colorScheme.onSurface,
-              ),
+        child: Center(
+          child: Text(
+            category.title,
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  color: Theme.of(context).colorScheme.onSurface,fontSize: 30
+                ),
+          ),
         ),
       ),
     );
