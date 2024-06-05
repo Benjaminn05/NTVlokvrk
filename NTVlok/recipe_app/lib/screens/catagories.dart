@@ -42,7 +42,6 @@ class CategoriesScreen extends StatelessWidget {
           mainAxisSpacing: 20,
         ),
         children: [
-          
           // availableCategories.map((category) => CategoryGridItem(category)).toList()
           for (final category in availableCategories)
             CategoryGridItem(

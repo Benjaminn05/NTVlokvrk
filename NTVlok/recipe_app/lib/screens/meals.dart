@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterapp/models/meal.dart';
 
 import 'package:flutterapp/screens/meal_detail.dart';
+
 import 'package:flutterapp/widgets/add_meal.dart';
 
 import 'package:flutterapp/widgets/meal_item.dart';
@@ -22,8 +23,14 @@ class MealsScreen extends StatefulWidget {
 }
 
 class _MealsScreenState extends State<MealsScreen> {
+  
+
   void _AddMeal(BuildContext) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => const AddMeal()));
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => const AddMeal(),
+      ),
+    );
   }
 
   void selectMeal(BuildContext context, Meal meal) {
@@ -40,7 +47,6 @@ class _MealsScreenState extends State<MealsScreen> {
   Widget build(BuildContext context) {
     Widget content = Center(
       child: Column(mainAxisSize: MainAxisSize.min, children: [
-        
         Text(
           'Uh oh ... nothing here!',
           style: Theme.of(context).textTheme.headlineLarge!.copyWith(
@@ -54,9 +60,11 @@ class _MealsScreenState extends State<MealsScreen> {
                 color: Theme.of(context).colorScheme.onSurface,
               ),
         ),
-        IconButton(onPressed: () {
-          _AddMeal(context);
-        }, icon: const Icon(Icons.add)),
+        IconButton(
+            onPressed: () {
+              _AddMeal(context);
+            },
+            icon: const Icon(Icons.add)),
       ]),
     );
 
@@ -72,6 +80,11 @@ class _MealsScreenState extends State<MealsScreen> {
           meal: widget.meals[index],
           onSelectMeal: (meal) {
             selectMeal(context, meal);
+            IconButton(
+            onPressed: () {
+              _AddMeal(context);
+            },
+            icon: const Icon(Icons.add));
           },
         ),
       );
@@ -79,9 +92,14 @@ class _MealsScreenState extends State<MealsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text(widget.title,),
       ),
       body: content,
+      floatingActionButton: FloatingActionButton(onPressed: () {
+              _AddMeal(context);
+            },
+            child: const Icon(Icons.add),
+            ),
     );
   }
 }
