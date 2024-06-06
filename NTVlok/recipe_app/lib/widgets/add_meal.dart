@@ -5,7 +5,6 @@ import 'package:flutterapp/data/dummy_data.dart';
 import 'package:flutterapp/models/add_things.dart';
 
 import 'package:flutterapp/models/category.dart';
-import 'package:flutterapp/models/meal.dart';
 
 class AddMeal extends StatefulWidget {
   const AddMeal({super.key});
@@ -35,33 +34,7 @@ class _AddMeal extends State<AddMeal> {
         ),
       );
 
-      void _saveItem() {
-  if (_formKey.currentState!.validate()) {
-    _formKey.currentState!.save();
-
-    // Assuming 'Meal' class has a constructor that matches this structure
-    Meal newMeal = Meal(
-      id: 'm${dummyMeals.length + 1}', // Generating a new ID
-      categories: [_selectCategory],
-      title: _enteredName,
-      imageUrl: '', // Default or ask user to provide
-      ingredients: _enteredIngrediants,
-      steps: [_enteredInstructions], // Ensure this matches your Meal model's structure
-      duration: 10, // Default or make a form input
-      complexity: Complexity.simple, // Default or make a form input
-      affordability: Affordability.affordable, // Default or make a form input
-      isGlutenFree: false, // Default or make a form input
-      isLactoseFree: false, // Default or make a form input
-      isVegan: false, // Default or make a form input
-      isVegetarian: false, // Default or make a form input
-    );
-
-    // Add new meal to the global list
-    dummyMeals.add(newMeal);
-
-  }
-}
-
+      
     }
   }
 
