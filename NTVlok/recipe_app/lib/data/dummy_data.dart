@@ -4,6 +4,7 @@ import 'package:flutterapp/models/category.dart';
 
 import 'package:flutterapp/models/meal.dart';
 
+// List of available categories with their unique IDs, titles, and colors.
 const availableCategories = [
   Category(
     id: 'c1',
@@ -27,6 +28,7 @@ const availableCategories = [
   ),
 ];
 
+// List of dummy meal data with various properties such as ID, categories, title, image URL, ingredients, steps, etc.
 const dummyMeals = [
  Meal(
   id: 'm1',

@@ -10,6 +10,8 @@ import 'package:flutterapp/screens/meals.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
+
+// Defining the theme for the app
 final theme = ThemeData(
   useMaterial3: true,
   colorScheme: ColorScheme.fromSeed(
@@ -19,10 +21,12 @@ final theme = ThemeData(
   textTheme: GoogleFonts.latoTextTheme(),
 );
 
+// Main entry point of the application
 void main() {
   runApp(const App());
 }
 
+// Main App widget
 class App extends StatelessWidget {
   const App({super.key});
 

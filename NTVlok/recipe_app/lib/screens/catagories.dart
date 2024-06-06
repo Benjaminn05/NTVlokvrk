@@ -18,13 +18,17 @@ class CategoriesScreen extends StatefulWidget {
 
 class _CategoriesScreenState extends State<CategoriesScreen> {
   String _searchText = "";
-  List<Category> _filteredCategories = availableCategories;
+  List<Category> _filteredCategories = availableCategories; // List to store filtered categories
 
+  // Method to handle category selection
   void _selectCategory(BuildContext context, Category category) {
+    // Filter meals based on selected category
     final filteredMeals = dummyMeals
         .where((meal) => meal.categories.contains(category.id))
         .toList();
 
+
+    // Navigate to MealsScreen with the selected category's meals
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (ctx) => MealsScreen(
@@ -35,6 +39,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     );
   }
 
+  // Method to filter categories based on search text
   void _filterCategories(String searchText) {
     setState(() {
       _searchText = searchText;
@@ -67,7 +72,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
-              onChanged: _filterCategories,
+              onChanged: _filterCategories, // Update filtered categories on text change
             ),
           ),
           Expanded(
@@ -95,103 +100,3 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     );
   }
 }
-
-/*class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({super.key});
-
-  void _selectCategory(BuildContext context, Category category) {
-    final filteredMeals = dummyMeals
-        .where((meal) => meal.categories.contains(category.id))
-        .toList();
-
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (ctx) => MealsScreen(
-          title: category.title,
-          meals: filteredMeals,
-        ),
-      ),
-    );
-  }
-
-  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Center(child:Text('Choose Category',style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),))
-      ),
-      body: GridView(
-        padding: const EdgeInsets.all(24),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 1,
-          childAspectRatio: 19 / 9,
-          crossAxisSpacing: 20,
-          mainAxisSpacing: 20,
-        ),
-        children: [
-          // availableCategories.map((category) => CategoryGridItem(category)).toList()
-          for (final category in availableCategories)
-            CategoryGridItem(
-              category: category,
-              onSelectCategory: () {
-                _selectCategory(context, category);
-              },
-            )
-        ],
-      ),
-    );
-  }
-}*/
-
-/*class CategoriesScreen extends StatelessWidget {
-  const CategoriesScreen({super.key});
-
-  void _selectCategory(BuildContext context, Category category) {
-    final filteredMeals = dummyMeals
-        .where((meal) => meal.categories.contains(category.id))
-        .toList();
-
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (ctx) => MealsScreen(
-          title: category.title,
-          meals: filteredMeals,
-        ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Center(child: Text('Choose Category', style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)))),
-      ),
-      body: Column(
-        children: [Expanded(
-            child: GridView(
-              padding: const EdgeInsets.all(24),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 1,
-                childAspectRatio: 19 / 9,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20,
-              ),
-              children: [
-                for (final category in availableCategories)
-                  CategoryGridItem(
-                    category: category,
-                    onSelectCategory: () {
-                      _selectCategory(context, category);
-                    },
-                  ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}*/

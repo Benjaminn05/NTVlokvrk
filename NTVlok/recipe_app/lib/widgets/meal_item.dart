@@ -6,7 +6,7 @@ import 'package:flutterapp/widgets/meal_item_trait.dart';
 
 import 'package:transparent_image/transparent_image.dart';
 
-
+// Constructor for the MealItem class
 class MealItem extends StatelessWidget {
   const MealItem({
     super.key,
@@ -14,13 +14,16 @@ class MealItem extends StatelessWidget {
     required this.onSelectMeal
   }); 
 
+  // The meal object and a callback function to handle meal selection
   final Meal meal;
   final void Function(Meal meal) onSelectMeal;
 
+  // Getter to format the complexity text
   String get complexityText {
     return meal.complexity.name[0].toUpperCase() + meal.complexity.name.substring(1);
   }
 
+  // Getter to format the affordability text
   String get affordabilityText {
     return meal.affordability.name[0].toUpperCase() + meal.affordability.name.substring(1);
   }
@@ -29,15 +32,18 @@ class MealItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: InkWell(
+        // When the meal item is tapped, the onSelectMeal callback is triggered
         onTap: () {
           onSelectMeal(meal);
         },
         child: Stack(
           children: [
+             // Displaying the meal image with a fade-in effect
             FadeInImage(
               placeholder: MemoryImage(kTransparentImage),
               image: NetworkImage(meal.imageUrl),
             ),
+            // Positioned widget to display the meal details at the bottom
             Positioned(
               bottom: 0,
               left: 0,
@@ -47,6 +53,7 @@ class MealItem extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 44),
                 child: Column(
                   children: [
+                    // Displaying the meal title
                     Text(
                     meal.title,
                     maxLines: 2,
@@ -60,6 +67,7 @@ class MealItem extends StatelessWidget {
                     ),
                     ),
                     const SizedBox(height: 12),
+                    // Row to display meal traits (duration, complexity, affordability)
                     Row(mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                     MealItemTrait(

@@ -16,39 +16,40 @@ class MealsScreen extends StatefulWidget {
     required this.meals,
   });
 
-  final String title;
-  final List<Meal> meals;
+  final String title; // Title of the screen
+  final List<Meal> meals; // List of meals to display
 
   @override
   State<MealsScreen> createState() => _MealsScreenState();
 }
 
 class _MealsScreenState extends State<MealsScreen> {
-  final List<AddThings> _mealItems = [];
+  final List<AddThings> _mealItems = []; // List to store added meals
 
+  // Method to add a meal
   void _AddMeal(BuildContext) async {
-    final addMeal = await
-     Navigator.of(context).push<AddThings>(
+    final addMeal = await Navigator.of(context).push<AddThings>(
       MaterialPageRoute(
         builder: (ctx) => const AddMeal(),
       ),
     );
 
     if (addMeal == null) {
-      return;
+      return; // If no meal is added, return
     }
 
     setState(() {
-      _mealItems.add(addMeal);
+      _mealItems.add(addMeal); // Add the meal to the list
     });
-    
   }
 
+  // Method to select a meal
   void selectMeal(BuildContext context, Meal meal) {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (ctx) => MealDetailsScreen(
-          meal: meal, onToggleFavorite: (Meal meal) {  },
+          meal: meal,
+          onToggleFavorite: (Meal meal) {},
         ),
       ),
     );
@@ -56,6 +57,7 @@ class _MealsScreenState extends State<MealsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Default content if there are no meals
     Widget content = Center(
       child: Column(mainAxisSize: MainAxisSize.min, children: [
         Text(
@@ -79,11 +81,7 @@ class _MealsScreenState extends State<MealsScreen> {
       ]),
     );
 
-    // ListView.builder(
-    //itemCount: meals.length,
-    //itemBuilder: (ctx, index) => Text(
-    //meals[index].title,
-
+    // If there are meals, display them in a ListView
     if (widget.meals.isNotEmpty) {
       content = ListView.builder(
         itemCount: widget.meals.length,
@@ -92,10 +90,10 @@ class _MealsScreenState extends State<MealsScreen> {
           onSelectMeal: (meal) {
             selectMeal(context, meal);
             IconButton(
-            onPressed: () {
-              _AddMeal(context);
-            },
-            icon: const Icon(Icons.add));
+                onPressed: () {
+                  _AddMeal(context);
+                },
+                icon: const Icon(Icons.add));
           },
         ),
       );
@@ -103,14 +101,15 @@ class _MealsScreenState extends State<MealsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title,),
+        title: Text(widget.title), // Display the screen title
       ),
-      body: content,
-      floatingActionButton: FloatingActionButton(onPressed: () {
-              _AddMeal(context);
-            },
-            child: const Icon(Icons.add),
-            ),
+      body: content, // Display the content
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _AddMeal(context); // Display the content
+        },
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
