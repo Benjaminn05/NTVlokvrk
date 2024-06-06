@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutterapp/data/dummy_data.dart';
-
 import 'package:flutterapp/screens/catagories.dart';
-
-import 'package:flutterapp/screens/meal_detail.dart';
-
-import 'package:flutterapp/screens/meals.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
